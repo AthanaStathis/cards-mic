@@ -1,14 +1,23 @@
 package com.athanasios.cards.dto;
 
+import org.springframework.http.HttpStatus;
+
+import java.time.LocalDateTime;
+
 public class ErrorResponseDto {
     private String apiPath;
-    private String errorStatusCode;
+    private HttpStatus errorCode;
     private String errorMessage;
+    private LocalDateTime errorTime;
 
-    public ErrorResponseDto(String apiPath, String errorStatusCode, String errorMessage) {
+    public ErrorResponseDto(String apiPath,
+                            HttpStatus errorCode,
+                            String errorMessage,
+                            LocalDateTime errorTime) {
         this.apiPath = apiPath;
-        this.errorStatusCode = errorStatusCode;
+        this.errorCode = errorCode;
         this.errorMessage = errorMessage;
+        this.errorTime = errorTime;
     }
 
     public String getApiPath() {
@@ -19,12 +28,12 @@ public class ErrorResponseDto {
         this.apiPath = apiPath;
     }
 
-    public String getErrorStatusCode() {
-        return errorStatusCode;
+    public HttpStatus getErrorCode() {
+        return errorCode;
     }
 
-    public void setErrorStatusCode(String errorStatusCode) {
-        this.errorStatusCode = errorStatusCode;
+    public void setErrorCode(HttpStatus errorCode) {
+        this.errorCode = errorCode;
     }
 
     public String getErrorMessage() {
@@ -33,5 +42,13 @@ public class ErrorResponseDto {
 
     public void setErrorMessage(String errorMessage) {
         this.errorMessage = errorMessage;
+    }
+
+    public LocalDateTime getErrorTime() {
+        return errorTime;
+    }
+
+    public void setErrorTime(LocalDateTime errorTime) {
+        this.errorTime = errorTime;
     }
 }

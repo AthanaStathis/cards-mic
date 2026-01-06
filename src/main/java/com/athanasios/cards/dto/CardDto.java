@@ -8,7 +8,7 @@ import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Positive;
 import jakarta.validation.constraints.PositiveOrZero;
 
-public class CardDto extends BaseEntity {
+public class CardDto {
 
     @NotEmpty
     private String mobileNumber;
@@ -27,7 +27,7 @@ public class CardDto extends BaseEntity {
     @PositiveOrZero(message = "Total amount used should be equal or greater than zero")
     private int amountUsed;
 
-    @Positive(message = "Available amount should not be negative number")
+    @PositiveOrZero(message = "Available amount should not be negative number")
     private int availableAmount;
 
     public String getMobileNumber() {

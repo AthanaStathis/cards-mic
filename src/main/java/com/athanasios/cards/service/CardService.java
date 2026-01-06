@@ -7,9 +7,8 @@ import org.springframework.stereotype.Service;
 
 
 public interface CardService {
-    void createCard(CardDto cardDto);
-
+    void createCard(String mobileNumber);
     CardDto fetchCard(String mobileNumber);
-
     boolean updateCard(CardDto cardDto);
+    boolean deleteCard(String mobileNumber);
 }

@@ -33,6 +33,10 @@ public class Card extends BaseEntity{
     @Column(name = "available_amount")
     private int availableAmount;
 
+    @Column(name = "amount_used")
+    private int amountUsed;
+
+
     public Card() {
     }
 
@@ -41,13 +45,23 @@ public class Card extends BaseEntity{
                  String cardNumber,
                  String cardType,
                  int totalLimit,
-                 int availableAmount) {
+                 int availableAmount,
+                int amountUsed) {
         this.cardId = cardId;
         this.mobileNumber = mobileNumber;
         this.cardNumber = cardNumber;
         this.cardType = cardType;
         this.totalLimit = totalLimit;
         this.availableAmount = availableAmount;
+        this.amountUsed = amountUsed;
+    }
+
+    public int getAmountUsed() {
+        return amountUsed;
+    }
+
+    public void setAmountUsed(int amountUsed) {
+        this.amountUsed = amountUsed;
     }
 
     public int getCardId() {
@@ -107,6 +121,7 @@ public class Card extends BaseEntity{
                 ", cardType='" + cardType + '\'' +
                 ", totalLimit=" + totalLimit +
                 ", availableAmount=" + availableAmount +
+                ", amountUsed=" + amountUsed +
                 '}';
     }
 }
